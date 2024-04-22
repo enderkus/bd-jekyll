@@ -41,7 +41,6 @@ site_url: "https://www.banudolastir.com/"
 article_contact_us_link: "https://www.doktortakvimi.com/banu-dolastir"
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
 
