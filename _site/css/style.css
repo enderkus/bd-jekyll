@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@100..900&display=swap');
+
+:root {
+    --primary-dark-color: #2E584E;
+    --primary-opaque-color: #3A685D;
+    --action-button-color: #B8E897;
+}
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+
+.text-dark-site-style {
+    color: var(--primary-dark-color) !important;
+}
+
+.btn-site-style-hover-white {
+    background-color: var(--action-button-color);
+}
+
+
+.btn-site-style-hover-white:hover {
+    background-color: var(--bs-white);
+    color: var(--bs-black);
+}
+
+.btn-site-style {
+    background-color: var(--action-button-color);
+}
+
+.btn-site-style:hover {
+    background-color: var(--primary-opaque-color);
+    color: var(--bs-white);
+}
+
+.btn-site-style-dark {
+    background-color: var(--primary-dark-color);
+    color: var(--bs-white);
+}
+
+.btn-site-style-dark:hover {
+    background-color: var(--bs-black);
+    color: var(--bs-white);
+}
+
+.site-navbar-and-hero {
+    background-color: var(--primary-dark-color);
+    background-image: url("../images/hero-pattern-5.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo-container a {
+    text-decoration: none;
+}
+
+.logo-container a:first-child {
+    font-family: "Allura", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--bs-white);
+    font-size: 3.4em;
+    margin-bottom: -20px;
+}
+
+.logo-container a:last-child {
+    font-family: "Inter", sans-serif;
+    color: var(--bs-white)
+}
+
+.nav-wrapper {
+    background-color: var(--primary-opaque-color);
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+}
+
+.nav-wrapper li a {
+    color: var(--bs-white);
+}
+
+.nav-wrapper li a:hover {
+    color: var(--bs-gray-300);
+}
+
+.nav-wrapper li a.active {
+    background-color: var(--bs-white);
+    border-radius: var(--bs-border-radius-pill) !important;
+    color: var(--primary-opaque-color);
+}
+
+.action-button {
+    border-color: var(--action-button-color);
+    color: var(--action-button-color);
+}
+
+.action-button:hover {
+    background-color: var(--action-button-color);
+    border-color: var(--primary-opaque-color);
+    color: var(--primary-dark-color);
+}
+
+.avatar-stack .avatar {
+    width: 150px;
+    height: 150px;
+    margin-right: -40px;
+}
+
+.welcome-text-logo {
+    font-family: "Allura", cursive;
+    font-size: 4.2em;
+    margin-bottom: -5px;
+}
+
+.main-services {
+    display: flex;
+}
+
+.border-action {
+    border-color: var(--action-button-color) !important;
+}
+
+.text-action {
+    color: var(--action-button-color) !important;
+}
+
+.fs-1dot2rem {
+    font-size: 1.2rem;
+}
+
+.hero-img {
+    border-radius: 2em;
+}
+
+.our-experts {
+    background-color: var(--primary-opaque-color);
+}
+
+.site-bg-overlay-white {
+    background-color: #ffffff;
+    opacity: 1;
+    background-image: radial-gradient(var(--action-button-color) 0.5px, transparent 0.5px), radial-gradient(var(--primary-dark-color) 0.3px, #ffffff 0.3px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+.footer {
+    background-color: var(--primary-opaque-color);
+}
+
+.footer-hover-color {
+}
+
+.footer-hover-color:hover {
+    color: var(--bs-gray-300) !important;
+}
+
+.page-cover {
+    background-color: var(--primary-opaque-color);
+}
+
+.breadcrumb-hover-style:hover {
+    text-decoration: underline !important;
+}
+
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--action-button-color);
+    color: var(--bs-black);
+}
+
+.blog-list-wrapper li {
+    border-bottom: 1px solid var(--action-button-color);
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.blog-list-wrapper li:last-child {
+    border-bottom: none;
+}
+
+.blog-list-wrapper li a:hover {
+    color: var(--primary-opaque-color) !important;
+}
