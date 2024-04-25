@@ -182,3 +182,12 @@
 .blog-list-wrapper li a:hover {
     color: var(--primary-opaque-color) !important;
 }
+
+
+.content-link {
+    color: var(--primary-opaque-color) !important;
+}
+
+.content-link:hover {
+    color: var(--bs-gray) !important;
+}

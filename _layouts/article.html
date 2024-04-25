@@ -1,0 +1,43 @@
+---
+layout: page
+---
+
+<div class="page-cover py-5 shadow">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 text-center">
+                <h1 class="mb-3 fw-medium fs-1 text-white">Yazılar</h1>
+                <ul class="breadcrumb list-unstyled d-flex justify-content-center mb-0">
+                    <li>
+                        <a href="/" class="text-decoration-none text-white breadcrumb-hover-style">Ana Sayfa <i
+                                class="bi bi-chevron-right"></i></a>
+                    </li>
+                    <li>
+                        <a href="/yazilar" class="text-decoration-none text-white breadcrumb-hover-style">Yazılar <i
+                                class="bi bi-chevron-right"></i></a></a>
+                    </li>
+                    <li>
+                        <a href="{{ page.canonical_path }}" class="text-decoration-none text-white breadcrumb-hover-style">{{ page.article_title }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-content py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 offset-xl-2">
+
+{{ content }}
+
+
+<p class="blockquote p-4 border-start border-action">
+    <i class="bi bi-info-circle"></i> “Blog yazıları bilgilendirme amaçlıdır. Tıbbi tavsiye veya tedavi yöntemi olarak değerlendirilmemelidir.”
+</p>
+
+            </div>
+        </div>
+    </div>
+</div>
