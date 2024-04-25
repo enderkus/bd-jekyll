@@ -227,3 +227,11 @@
 .text-default-color {
     color: var(--primary-opaque-color) !important;
 }
+
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+    /* Bu alan içerisine 1200 ile 1400 piksel arası ekran boyutları için uygulanacak CSS kurallarını ekleyebilirsiniz */
+    .logo-size-special {
+        font-size: 2em !important;
+    }
+}
