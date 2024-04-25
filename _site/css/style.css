@@ -10,6 +10,9 @@
     font-family: "Inter", sans-serif;
 }
 
+.bg-opaque {
+    background-color: var(--primary-opaque-color) !important;
+}
 
 .text-dark-site-style {
     color: var(--primary-dark-color) !important;

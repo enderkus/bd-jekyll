@@ -124,7 +124,7 @@
                     <a href="/">Psikoterapi Merkezi</a>
                 </div>
             </div>
-            <div class="col-sm-6 d-flex justify-content-center">
+            <div class="col-sm-6 d-flex justify-content-center d-none d-md-block">
                 <ul class="nav nav-wrapper rounded-pill px-2 py-2">
                     <li><a href="/" class="nav-link {% if page.path == 'index.html' %}active{% endif %}"><i
                             class="bi bi-house"></i></a></li>
@@ -141,10 +141,23 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-3 text-xl-end">
+            <div class="col-sm-3 text-xl-end d-none d-md-block">
                 <a href="https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul"
                    class="btn btn-site-style-hover-white rounded-pill px-4 fs-5">Rendevu Al <i
                         class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="d-block d-sm-none mt-3" id="mobile-menu">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a class="text-white" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button"
+                       aria-controls="offcanvasMenu">
+                        <i class="bi bi-list fs-1"></i>
+                    </a>
+
+                    <a href="https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul"
+                       class="btn btn-site-style-hover-white rounded-pill px-4 fs-5">Rendevu Al <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -162,7 +175,7 @@
                     <a href="/">Psikoterapi Merkezi</a>
                 </div>
             </div>
-            <div class="col-sm-6 d-flex justify-content-center">
+            <div class="col-sm-6 d-flex justify-content-center d-none d-md-block">
                 <ul class="nav nav-wrapper rounded-pill px-2 py-2">
                     <li><a href="/" class="nav-link {% if page.path == 'index.html' %}active{% endif %}"><i
                             class="bi bi-house"></i></a></li>
@@ -179,9 +192,23 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-3 text-xl-end">
-                <a href="https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul" class="btn btn-site-style-hover-white rounded-pill px-4 fs-5">Rendevu Al <i
+            <div class="col-sm-3 text-xl-end d-none d-md-block">
+                <a href="https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul"
+                   class="btn btn-site-style-hover-white rounded-pill px-4 fs-5">Rendevu Al <i
                         class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="d-block d-sm-none mt-3" id="mobile-menu">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a class="text-white" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button"
+                       aria-controls="offcanvasMenu">
+                        <i class="bi bi-list fs-1"></i>
+                    </a>
+
+                    <a href="https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul"
+                       class="btn btn-site-style-hover-white rounded-pill px-4 fs-5">Rendevu Al <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -240,6 +267,45 @@
         </div>
     </div>
 </footer>
+
+<!-- ofcanvas menu -->
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+    </div>
+</div>
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+    <div class="offcanvas-header bg-opaque">
+        <div class="logo-container d-flex flex-column align-items-center">
+                    <a href="/">Banu Dolaştır</a>
+                    <a href="/">Psikoterapi Merkezi</a>
+                </div>
+        <a type="button" class="text-white display-3 ms-4" data-bs-dismiss="offcanvas" aria-label="Kapat"><i class="bi bi-x"></i></a>
+    </div>
+    <div class="offcanvas-body bg-opaque">
+        <ul class="nav nav-wrapper rounded-5 px-0 py-4 d-flex flex-column">
+            <li><a href="/" class="nav-link {% if page.path == 'index.html' %}active{% endif %}">
+                Ana Sayfa</a>
+            </li>
+            <li><a href="/uzmanlarimiz"
+                   class="nav-link {% if page.path == 'uzmanlarimiz.html' %}active{% endif %}">Uzmanlarımız</a>
+            </li>
+            <li><a href="/sema-terapi"
+                   class="nav-link {% if page.path == 'sema-terapi.html' %}active{% endif %}">Şema Terapi</a>
+            </li>
+            <li><a href="/yazilar" class="nav-link {% if page.path == 'yazilar.html' %}active{% endif %}">Yazılar</a>
+            </li>
+            <li><a href="/sss" class="nav-link {% if page.path == 'sss.html' %}active{% endif %}">S.S.S</a></li>
+            <li><a href="/kvkk" class="nav-link {% if page.path == 'kvkk.html' %}active{% endif %}">KVKK</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
