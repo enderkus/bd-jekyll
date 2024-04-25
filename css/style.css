@@ -106,6 +106,27 @@
     margin-right: -40px;
 }
 
+
+@media (max-width: 575.98px) {
+    /* Bu alan içerisine 576 pikselden küçük ekran boyutları için uygulanacak CSS kurallarını ekleyebilirsiniz */
+    .avatar-stack {
+        text-align: center;
+        margin-right: 30px;
+    }
+
+    .avatar-stack .avatar {
+        width: 50%;
+        height: 50%;
+        margin-right: -30px;
+        margin-bottom: -30px;
+    }
+
+    .avatar-stack .avatar:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
 .welcome-text-logo {
     font-family: "Allura", cursive;
     font-size: 4.2em;
@@ -190,4 +211,16 @@
 
 .content-link:hover {
     color: var(--bs-gray) !important;
+}
+
+.border-default-color {
+    border-color: var(--primary-opaque-color) !important;
+}
+
+.border-opaque-color {
+    border-color: var(--action-button-color) !important;
+}
+
+.text-default-color {
+    color: var(--primary-opaque-color) !important;
 }
