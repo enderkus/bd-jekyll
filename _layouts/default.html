@@ -180,7 +180,7 @@
                     <li><a href="./" class="nav-link {% if page.path == 'index.html' %}active{% endif %}"><i
                             class="bi bi-house"></i></a></li>
                     <li><a href="./uzmanlarimiz"
-                           class="nav-link {% if page.path == 'uzmanlarimiz.html' %}active{% endif %}">Uzmanlarımız</a>
+                           class="nav-link {% if page.path == 'uzmanlarimiz.html' %}active{% endif %} {% if page.is_expert == true %}active{% endif %}">Uzmanlarımız</a>
                     </li>
                     <li><a href="./sema-terapi"
                            class="nav-link {% if page.path == 'sema-terapi.html' %}active{% endif %}">Şema Terapi</a>
@@ -293,12 +293,12 @@
                 Ana Sayfa</a>
             </li>
             <li><a href="./uzmanlarimiz"
-                   class="nav-link {% if page.path == 'uzmanlarimiz.html' %}active{% endif %}">Uzmanlarımız</a>
+                   class="nav-link {% if page.path == 'uzmanlarimiz.html' %}active{% endif %} {% if page.is_expert == true %}active{% endif %}">Uzmanlarımız</a>
             </li>
             <li><a href="./sema-terapi"
                    class="nav-link {% if page.path == 'sema-terapi.html' %}active{% endif %}">Şema Terapi</a>
             </li>
-            <li><a href="./yazilar" class="nav-link {% if page.path == 'yazilar.html' %}active{% endif %}">Yazılar</a>
+            <li><a href="./yazilar" class="nav-link {% if page.path == 'yazilar.html' %}active{% endif %} {% if page.is_article == true %}active{% endif %}">Yazılar</a>
             </li>
             <li><a href="./sss" class="nav-link {% if page.path == 'sss.html' %}active{% endif %}">S.S.S</a></li>
             <li><a href="./kvkk" class="nav-link {% if page.path == 'kvkk.html' %}active{% endif %}">KVKK</a>
