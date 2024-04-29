@@ -115,6 +115,7 @@
     .avatar-stack {
         text-align: center;
         margin-right: 30px;
+        margin-bottom: 30px;
     }
 
     .avatar-stack .avatar {
@@ -124,9 +125,6 @@
         margin-bottom: -30px;
     }
 
-    .avatar-stack .avatar:last-child {
-        margin-bottom: 0;
-    }
 }
 
 
