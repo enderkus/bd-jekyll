@@ -1,3 +1,452 @@
-- [ ] Özge Kıcalı profil resmi gerekli.
-- [ ] Özge Kıcalı title bilgisi gerekli.
-- [ ] Her uzman icin doktortakvimi embed kodlari alinmali
+# NOTLAR
+
+## Önemli!!!!
+
+- CSS Dosyasını her değiştirdiğinde dosyanın ismindeki version numarasını da değiştir. Ayrıca
+  layout'taki linki de güncelle.
+- Siteye yeni bir sayfa eklendiğinde veya sayfa ismi değiştiğinde sitemap.xml dosyasını de güncelle!
+
+## Eksikler
+
+- Cookie izin eklenecek.
+- banudolastirlogoicon.zip
+- Kitap önerileri sayfası ekle. Liste Telegram mesajında.
+- Yazılar sayfasına yazıların giriş kısımlarını koy 1-2 cümlelik.
+- İletişim Sayfası: adresi Google maps haritalar ile ekle.
+- Yandex'e ekle
+- "Klinikte verilen hizmletler nelerdir?" sorusunu değiştir ya da kaldır.
+- Tablette nasıl gözüküyor?
+
+## İyileştirmeler
+
+- Yeni tasarım.
+- 404 sayfasının tasarımı.
+- Galeri, doktor takvimi google maps'e eklemiş, ordan alınabilir.
+
+## Arama Sonuçları
+
+- 1 Ekim 2023 tarihi itibariyle "lüleburgaz psikolog" diye aratınca:
+  - google.com.tr'de 1. sayfada 10. sırada  (her sayfada 10 kayıt var)
+  - yandex.com.tr'den silinmis mi???
+  - bing.com'da hala çıkmıyor???
+- 16 Mart 2023 tarihi itibariyle "lüleburgaz psikolog" diye aratınca:
+  - google.com.tr'de 4. sayfada 4. sırada  (her sayfada 10 kayıt var)
+  - yandex.com.tr'de 2. sayfada 7. sırada (her sayfada 14 kayıt var)
+  - bing.com'da henüz çıkmıyor
+- 22 Mart 2023 tarihi itibariyle "lüleburgaz psikolog" diye aratınca:
+  - google.com.tr'de 3. sayfada 9. sırada
+  - yandex.com.tr'de 2. sayfada 6. sırada
+  - bing.com'da henüz çıkmıyor
+- 28 Mart 2023 tarihi itibariyle "lüleburgaz psikolog" diye aratınca:
+  - google.com.tr'de 4. sayfada 3. sırada
+- 3 Nisan 2023 tarihi itibariyle "lüleburgaz psikolog" diye aratınca:
+  - google.com.tr'de 2. sayfada 9. sırada
+
+## Yönlendirmeler
+
+`banudolastir.com` altındaki tüm URL'leri `www.banudolastir.com` domainine
+yönlendirmek için Cloudflare'de "Rules -> Redirect Rules -> Single Redirects"
+bölümünde "bd-redirect-rules" adında bir dynamic redirect kuralı oluşturdum. Bu
+kuraldaki ayarlar şu şekilde:
+
+```
+When incoming requests match…
+Field: Hostname
+Operator: equals
+Value: banudlastir.com
+
+Expression Preview: (http.host eq "banudolastir.com")
+
+Then...
+URL Redirect
+Type: dynamic
+Expression: concat("https://www.", http.host, http.request.uri)
+Status code: 301
+Preserve query string: checked
+```
+
+## Canonical URL
+
+Tum sayfalara index dahil canonical URL icin tag eklendi. Bu sayede indexleme
+sırasında oluşan "Duplicate without user-selected canonical" hatasından
+kurtulucaz umarım.
+
+```
+<link rel="canonical" href="https://www.banudolastir.com/" />
+<link rel="canonical" href="https://www.banudolastir.com/hakkimda" />
+```
+
+## Sosya Medya
+
+Sosyam medya kartlarının nasıl gözüktüğü görmek için:
+
+Social Media Preview: https://socialsharepreview.com/?url=https://www.banudolastir.com/
+
+## Whatsapp Butonu
+
+Whatsapp button: https://github.com/open-wa/whatsapp-button
+
+## Sitemap
+
+`sitemap.xml` dosyasında URL'ler tanımlı. Yeni bir sayfa eklendiğinde veya
+değiştiğinde bu dosyayı güncelle.
+
+sitemap'i aşağıdaki servislere ekledim:
+
+- Google Search Console
+- Bing Webmaster
+
+## IndexNow & Crawler Hints
+
+Cloudflare'de "Crawler Hints"i enable ettim:
+https://dash.cloudflare.com/9747235788385d43b0947c82338e0360/banudolastir.com/caching/configuration
+
+## SEO Crawlers
+
+- https://tools.sureoak.com/seo-tools/page-analyzer
+
+## Installation
+
+```
+$ git pull ...
+$ bundle
+```
+
+## Development Server
+
+```
+$ bundle exec jekyll s --livereload
+```
+
+## Deployment & CI/CD
+
+- Bu web sitesi Jekyll(Static Site Generator) kullanılarak build ediliyor.
+- Bu web sitesi Cloudflare Pages'te host ediliyor.
+- Cloudflare Pages'ta "bd" adında bir proje oluşturup "bd" GitHub reposunu o projeye bağladım.
+
+### Otomatik Deployment
+
+Cloudflare bu projenin GitHub reposuna bağlı olduğu için, `main` branch'e bir
+commit/push yapıldığında otomatik olarak deploy gerçekleşiyor ve web sitesi güncelleniyor.
+
+### Manuel Deployment
+
+Eğer otomatik deployment çalışmazsa, deploy etmek için izlenecek adımlar:
+
+- Değişiklikleri yap, commit et ve main branch'e push et.
+- Cloudflare'e giriş yap, ve Pages bölümüne gir.
+- Listeden "bd" projesini seç ve deploy et.
+
+## İlk Deploydan Sonra Yapılacaklar
+
+- www.banudolastir.com ve banudolastir.com'u kontrol et.
+- Tüm linkleri kontrol et.
+- Twitter/Facebook kartların validate/debug et.
+- Cloudflare ve Google Analytics'e veri akışı sağlanıyor mu kontrol et.
+
+## Icons
+
+https://fonts.google.com/icons?selected=Material+Icons
+
+Ikonu bulduktan sonra SVG'sini indir. İndirilen dosyayı text editörü veya browserla açıp SVG kodunu al.
+
+## Optimizasyon / PageSpeed Insights
+
+- https://pagespeed.web.dev/report?url=https%3A%2F%2Fwww.banudolastir.com%2F
+
+## Yandex Webmaster Tools
+
+https://webmaster.yandex.com/site/https:banudolastir.com:443/settings/access/
+
+Siteyi Yandex'e eklemek için aşağıdaki kodu siteye ekledim:
+
+```html
+<meta name="yandex-verification" content="18bdf0877ea549b8" />
+```
+
+## Bing Webmaster Tools
+
+https://www.bing.com/webmasters/home
+
+Önce siteyi manuel olarak ekledim.
+
+Siteyi doğrulamak için aşağıdaki kodu siteye ekledim:
+
+```html
+<meta name="msvalidate.01" content="D2C807DA3A29FC30469ED53A8DC2CE5B" />
+```
+
+## Google Search Console
+
+Google Search Console Dashboard:
+https://search.google.com/search-console?resource_id=https%3A%2F%2Fwww.banudolastir.com%2F
+
+Siteyi ekledim ve Google Analytics ile bağladım. Bu sayede hangi anahtar
+kelimeler ile arama yapılmış görebileceğiz.
+
+## Google Analytics
+
+Google Analytics Dashboard:
+https://analytics.google.com/analytics/web/#/p314204451/reports/intelligenthome
+
+Benim kişisel Gmail ana hesabında, kozgun.net alt hesabı altında Google
+Analytics için BanuDolastir adında bir property oluşturdum. Google Analytics
+koduna "Data Streams" bölümünden ulaşılabilir.
+
+ Google Analytics kodu aşağıdaki gibi:
+
+```html
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KE16M2XE4S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE16M2XE4S');
+</script>
+```
+
+## Cloudflare Analytics
+
+Bu web sitesi için Cloudflare'de "Web Analytics" i aktif yaptım.
+
+## Doktor Takivimi
+
+[Doktor takviminde](https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul) hizmetler
+ve ilgli alanları ile ilgili bilgi var. Bu dokumanda aşağıya ekledim.
+
+Doktor takivimi rozeti:
+
+```html
+<a id="zl-url" class="zl-url" href="https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul" rel="nofollow" data-zlw-doctor="banu-dolastir" data-zlw-type="big_with_calendar" data-zlw-opinion="false" data-zlw-hide-branding="true">Banu Dolaştır - DoktorTakvimi.com</a><script>!function($_x,_s,id){var js,fjs=$_x.getElementsByTagName(_s)[0];if(!$_x.getElementById(id)){js = $_x.createElement(_s);js.id = id;js.src = "//platform.docplanner.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","zl-widget-s");</script>
+```
+
+## Tasarım, Görseller ve Örnek Tasarımlar
+
+- Renk Paleti: https://coolors.co/palette/dad7cd-a3b18a-588157-3a5a40-344e41
+- Font: [Poppins](https://fonts.google.com/specimen/Poppins)
+- Font: [Allura](https://fonts.google.com/specimen/Allura)
+- Ikonlar: [Material Design icons](https://materialdesignicons.com/)
+
+### Görseller
+
+- https://unsplash.com/s/photos/dandelion
+- https://unsplash.com/photos/sJSu5qKXUKk
+- https://unsplash.com/photos/SwAZtRgTH3U
+- https://unsplash.com/photos/7QUrf2hWZvA
+- https://unsplash.com/photos/YNM4KStg78I
+- https://unsplash.com/photos/HWz84DUlWNU
+- https://unsplash.com/photos/ARXbWXYekhQ
+
+### Örnek Tasarımlar
+
+- https://dribbble.com/shots/17992922-Psychology-Landing-Page
+- https://www.behance.net/gallery/133392163/About-Me?tracking_source=search_projects%7Cabout%20me
+- http://exill.dk/demo/flexi/template/particles.html
+
+## Site İçeriği Kaynakları
+
+### İlgi Alanları
+
+Severek ilgilendiği alanlarmış. Banu'nun [doktor takvimi sayfasından](https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul) alındı.
+
+- Depresyon
+- Stres
+- Sosyal Fobi
+- Cinsel Terapi Danışmanlığı
+- Agorafobi
+- Sosyal Uyum Problemleri
+- Çocuk Ve Ergen Psikolojisi
+- Yaygın Anksiyete Bozukluğu
+- Yeme Bozuklukları
+- Aile İçi İletişim Sorunları
+- Sınav Kaygısı
+- Özgüven Sorunu (Kendine Güven Sorunu)
+- Davranış Bozuklukları
+- Panik Atak
+- Obsesif-Kompulsif Bozukluk
+- Okul Başarısızlığı
+- Motivasyon Eksikliği
+- Özgül Fobi
+- İlişki Problemleri
+- Majör Depresif Bozukluk
+- Kişilerarası İlişkilerde Bozukluklar
+- Vajinismus
+- Kişilik Bozuklukları
+- Yas (Matem)
+- Okul zorlukları
+- Cinsel İşlev Bozukluğu
+- Panik Bozukluğu
+- Gelişim Bozuklukları
+- Somatizasyon Bozukluğu
+- Unutkanlık
+- Madde Kullanımıyla İlişkili Bozukluklar
+- Vücut (Beden) Disformik Bozukluğu
+- Ağlama ve Öfke Nöbetleri
+- Psikolojik Bozukluk
+- Kaygı Bozuklukları
+- Hipokondriazis
+- Boşanma Travması
+- Dikkat Eksikliği ve Hiperaktivite
+- Distimik Bozukluk (Kronik Depresyon)
+- Öfke
+- Çocuklarda Uyku Problemleri
+- Çocuklarda Yeme Problemleri
+- Borderline
+- Fobiler
+- Dikkat Dağınıklığı
+- Evlilik Sorunları
+- Çocuk ve Ergen Psikolojisi Problemleri
+- Baş Dönmeleri
+- Ilaç bağımlılığı
+- Hiperaktivite Bozukluğu
+- Şizofreni
+- Anksiyete
+- Ergenlik Bunalımı
+- Alt Islatma (Enürezis)
+- Psikotik Bozukluklar
+- Sertleşme Problemi
+- Kardeş Kıskançlığı
+- Anne-Baba Eğitimi ve Danışmanlığı
+- Cinsel Travmalar
+- Sosyal Medya Bağımlılığı
+- Travma
+- Bağlanma Problemleri
+- Dikkat Eksikliği
+- Kişilik bozukluğu
+- Tırnak Yeme
+- Duygulanım Bozukluğu - Manik Depresif Hastalığı
+- Oyun Bağımlılığı
+- Cinsel İsteksizlik
+- İnternet Bağımlılığı
+- Korku
+- Kilo Problemi
+- Adipsi (Susama Yokluğu)
+- Çekingenlik
+- Evlenme Korkusu
+- Telefon Bağımlılığı
+- Saldırganlık
+- Şiddet ve İstismar
+- Cinsel İstismar
+- Kaka Tutma (Enkoprezi)
+- Panik Bozukluklar
+- Erken Boşalma
+- Disleksi
+- Otizm Spektrum Bozukluğu
+- Öğrenme Güçlüğü
+- Kendine Zarar Verme
+- Yaşlılık Depresyonu
+- Cinsel Soğukluk
+- Kronik Erteleme Davranışı
+- Blumia
+- Kronik yorgunluk sendromu
+- Anoreksiya
+- Kronik Mutsuzluk
+- Kıskançlık
+- Koronofobi
+- Pandas Hastalığı
+- Narsistik Kişilik Bozukluğu
+- Sigara Bağımlılığı
+- Stroop Test
+- Hiperseksüalite
+- Alkol Bağımlılığı
+- Otizm
+- Uyku Bozuklukları
+- Kekemelik
+- Konuşma Bozuklukları
+- Asperger Sendromu
+- İnatlaşma
+- Kadın Uyarılma - Orgazm Bozukluğu
+- Erkek Erken Boşalma Sorunları
+- Uyum Bozuklukları
+- Şema Terapisi
+
+### Hizmetler
+
+[Doktor takvimi sayfasından](https://www.doktortakvimi.com/banu-dolastir/psikoloji/istanbul) alındı.
+
+Başlıca Hizmetler:
+
+- Online Danışmanlık
+- Online Terapi
+- Psikoloji Randevusu
+- Randevu
+
+Diğer Hizmetler:
+
+- Agte-Ankara Gelişim Tarama Envanteri
+- Aile Danışmanlığı
+- Aile Terapisi
+- Aile İçi İletişim Sorunları
+- Anne-Baba Eğitimi ve Danışmanlığı
+- Ağlama ve Öfke Nöbetleri
+- Bağımlılık Danışmanlığı
+- Bağımlılık Tedavisi
+- Beck Anksiyete Ölçeği Değerlendirme
+- Beck Depresyon Ölçeği
+- Bireysel Terapi
+- Boşanma Danışmanlığı
+- Boşanma Terapisi
+- Cinsel Terapi
+- Cinsel Terapi Danışmanlığı
+- Davranış Bozuklukları
+- Deneyimsel Oyun Terapisi
+- Destekleyici Psikoterapi
+- Dikkat Eksikliği ve Hiperaktivite
+- Doğum Psikoloğu
+- Durumluk Anksiyete Ölçeği
+- Ebeveyn Danışmanlığı
+- Ergen Terapisi
+- Evlilik Danışmanlığı
+- Evlilik Terapisi
+- Evlilik Öncesi Danışmanlık
+- Eğitim Danışmanlığı
+- Fobilerden Kurtulmak
+- Grup Terapisi
+- Hamilelikte Psikolojik Danışmanlık
+- Kanserde Psikolojik Destek
+- Koçluk Hizmetleri
+- Kurumsal Danışmanlık
+- Louisa Duss
+- Mental Muayene
+- Mindfulness (Bilinçli Farkındalık) Eğitimi
+- Mmpi- Minnesota Çok Yönlü Kişilik Envanteri
+- Nöropsikolojik Testler
+- Otistik Çocuklar İçin Özel Eğitim
+- Oyun Terapisi
+- Projektif Testler
+- Psikolojik Sağlamlık Programı
+- Psikoonkoloji
+- Psikoterapi
+- Sigara Bırakma
+- Sigarayı Bırakmak
+- Spor ve Egzersiz Psikolojisi
+- Standardize Mini Mental Test
+- Süreklilik Anksiyete Ölçeği
+- Tüp Bebek Tedavisinde Psikolojik Danışmanlık
+- Vajinismus Tedavisi
+- Yale-Brown Obsesyon Kompulsiyon Derecelendirme Ölçeği
+- Yas Terapisi
+- Yetişkin Terapisi
+- Çift Terapisi
+- Çocuk ve Ergen Psikolojisi
+- Çocuk ve Ergen Psikolojisi Problemleri
+- Çocuk ve Ergen Terapisi
+- Çocuk ve Ergenler İçin Psikolojik Sağlamlık Programı
+- Çocuklarda Yeme Problemleri
+- Çözüm Odaklı Terapi
+- Ön Görüşme
+- Öğrenme Güçlüğü Olan Çocuklar İçin Özel Eğitim
+- İlişki Terapisi
+- Şema Terapi
+
+### Psikolojik Testler
+
+- Alzheimer Testi
+- Unutkanlık Testi
+- Porteus Labirentleri Testi
+- Metropolitan Okul Olgunluğu Testi
+- Kent EGY Testi
+- Good Enough Zeka Testi
+- GOOD ENOUGH – HARRIS Bir insan Çiz Testi
